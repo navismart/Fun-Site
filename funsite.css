@@ -57,7 +57,7 @@ input {
   background-color: cadetblue;
   border-radius: 5px;
   border: none;
-  padding: 2.5%;
+  padding: 15px;
 }
 
 input::placeholder {
@@ -79,10 +79,10 @@ button {
   font-family: "Afacad Flux";
   font-size: large;
   font-weight: 600;
-  padding-left: 2.5%;
-  padding-right: 2.5%;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin-left: 20px;
   margin-top: 17px;
 }
