@@ -31,11 +31,11 @@ label {
 
 #weird {
   font-family: "Nanum Gothic Coding";
-  font-size: x-large;
+  font-size: large;
   color: blanchedalmond;
   font-weight: 900;
   background-color: blueviolet;
-  width: min-content;
+  width: max-content;
   padding: 10px;
   border-radius: 25px;
 }
