@@ -1,0 +1,109 @@
+h1 {
+  font-family: "Edu AU VIC WA NT Guides";
+  text-align: center;
+  font-size: 270%;
+}
+
+body {
+  background-color: aliceblue;
+  width: auto;
+  height: 680px;
+}
+
+#draggable {
+  position: absolute;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h2 {
+  font-size: xx-large;
+  font-family: "Kanit";
+  font-weight: 345;
+  margin-bottom: 0px;
+}
+
+label {
+  font-family: "Kanit";
+  font-weight: 345;
+  margin-bottom: 5px;
+}
+
+#weird {
+  font-family: "Nanum Gothic Coding";
+  font-size: x-large;
+  color: blanchedalmond;
+  font-weight: 900;
+  background-color: blueviolet;
+  width: min-content;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+#weird:hover {
+  rotate: var(--random);
+  color:yellow;
+  background-color: brown;
+  border-radius: var(--random-shape);
+  padding: 20px;
+  margin: 2px
+}
+
+input {
+  width: 200px;
+  font-family: "IBM Plex Mono";
+  font-weight: 900;
+  color: cornsilk;
+  background-color: cadetblue;
+  border-radius: 5px;
+  border: none;
+  padding: 2.5%;
+}
+
+input::placeholder {
+  font-weight: 900;
+  color: cornsilk;
+  background-color: cadetblue;
+  text-align: center;
+}
+
+#titleText {
+  border: none;
+}
+
+button {
+  border-radius: 17px;
+  border-style: none;
+  color: cornsilk;
+  background-color: burlywood;  
+  font-family: "Afacad Flux";
+  font-size: large;
+  font-weight: 600;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-left: 20px;
+  margin-top: 17px;
+}
+
+button:hover {
+  color: #deeffa;
+  background-color: cornflowerblue;
+}
+
+#monkey {
+  cursor: url(monkey-cursor.cur), auto;
+}
+
+#friedChicken {
+  cursor: url(chicken-cursor.cur), auto;
+}
+
+#invisible {
+  cursor: none;
+}
+
+#normal {
+  cursor: default;
+}
