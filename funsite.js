@@ -37,7 +37,7 @@ function dragElement(elmnt) {
 }
 
 function monkeyCursor() {
-  document.body.style.cursor = "url(/monkey-cursor.cur), auto";
+  document.body.style.cursor = "url(navismart.github.io/Fun-Site/monkey-cursor.cur), auto";
 }
 
 function normalCursor() {
@@ -49,7 +49,7 @@ function invisibleCursor() {
 }
 
 function friedChickenCursor() {
-  document.body.style.cursor = "url(/chicken-cursor.cur), auto";
+  document.body.style.cursor = "url(navismart.github.io/Fun-Site/chicken-cursor.cur), auto";
 }
 
 function changeTitle() {
