@@ -49,7 +49,8 @@ function invisibleCursor() {
 }
 
 function friedChickenCursor() {
-  document.body.style.cursor = "url(/chicken-cursor.cur), auto";
+  document.body.style.cursor =
+    "url(https://github.com/navismart/Fun-Site/blob/main/chicken-cursor.cur), auto";
 }
 
 function changeTitle() {
