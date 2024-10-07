@@ -79,9 +79,34 @@ function changeShape() {
   setShape(number);
 }
 
-function changeAngleAndShape() {
-  changeAngle();
-  changeShape();
+function setTextColor(random) {
+  weird.style.setProperty("--random-color", "#"+ random);
 }
 
-weird.addEventListener("mouseover", changeAngleAndShape);
+function changeTextColor() {
+  let number = Math.floor(Math.random() * (666666 - 0 + 1) + 0);
+  setTextColor(number);
+}
+
+function setBackgroundColor(random) {
+  weird.style.setProperty("--random-bg", "#" + random);
+}
+
+function changeBackgroundColor() {
+  let number = Math.floor(Math.random() * (666666 - 0 + 1) + 0);
+  setBackgroundColor(number);
+}
+
+function changeWeird() {
+  changeAngle();
+  changeShape();
+  changeTextColor();
+  changeBackgroundColor();
+}
+
+function resetTitle() {
+  document.getElementById("title").innerHTML = "navismart.github.io/Fun-Site";
+}
+
+
+weird.addEventListener("mouseover", changeWeird);
