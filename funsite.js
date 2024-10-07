@@ -97,7 +97,7 @@ function changeBackgroundColor() {
   setBackgroundColor(number);
 }
 
-function changeWeird() {
+function change() {
   changeAngle();
   changeShape();
   changeTextColor();
@@ -109,4 +109,4 @@ function resetTitle() {
 }
 
 
-weird.addEventListener("mouseover", changeWeird);
+weird.addEventListener("mouseover", change);
