@@ -108,5 +108,25 @@ function resetTitle() {
   document.getElementById("title").innerHTML = "navismart.github.io/Fun-Site";
 }
 
+function invert() {
+  document.body.style.filter = "invert()";
+}
+
+function grayscale() {
+  document.body.style.filter = "grayscale()";
+}
+
+function blurScreen() {
+  document.body.style.filter = "blur(10px)";
+}
+
+function changeHueRotation() {
+  let number = Math.floor(Math.random() * (360 - 0 + 1) + 0);
+  document.body.style.filter = "hue-rotate(" + number + "deg)";
+}
+
+function resetDistort() {
+  document.body.style.filter = "none";
+}
 
 weird.addEventListener("mouseover", change);
