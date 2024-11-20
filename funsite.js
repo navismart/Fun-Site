@@ -130,3 +130,137 @@ function resetDistort() {
 }
 
 weird.addEventListener("mouseover", change);
+
+// script.js
+
+const locked = [false, false, false, false, false]; // Track locked state
+
+// Function to generate a random hex color
+function getRandomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+}
+
+// Function to apply colors to the palette
+function generatePalette() {
+  for (let i = 1; i <= 5; i++) {
+    if (!locked[i - 1]) {
+      const colorBox = document.getElementById(`color${i}`);
+      const colorCode = document.getElementById(`code${i}`);
+      const randomColor = getRandomColor();
+      
+      colorBox.style.backgroundColor = randomColor;
+      colorCode.textContent = randomColor;
+    }
+  }
+}
+
+// Function to copy color to clipboard
+function copyToClipboard(index) {
+  const colorCode = document.getElementById(`code${index}`).textContent;
+  navigator.clipboard.writeText(colorCode).then(() => {
+    alert(`Copied ${colorCode} to clipboard!`);
+  });
+}
+
+// Function to toggle lock
+function toggleLock(index) {
+  const lockButton = document.querySelector(`.lock-btn[data-index="${index}"]`);
+  locked[index - 1] = !locked[index - 1];
+  lockButton.textContent = locked[index - 1] ? '🔒' : '🔓';
+  lockButton.classList.toggle('locked', locked[index - 1]);
+}
+
+// Function to save the current palette
+function savePalette() {
+  const currentPalette = [];
+  for (let i = 1; i <= 5; i++) {
+    const colorCode = document.getElementById(`code${i}`).textContent;
+    currentPalette.push(colorCode);
+  }
+
+  const savedPalettes = JSON.parse(localStorage.getItem('palettes')) || [];
+  savedPalettes.push(currentPalette);
+  localStorage.setItem('palettes', JSON.stringify(savedPalettes));
+  displaySavedPalettes();
+  alert('Palette saved!');
+}
+
+// Function to delete a palette
+function deletePalette(index) {
+  const savedPalettes = JSON.parse(localStorage.getItem('palettes')) || [];
+  savedPalettes.splice(index, 1);
+  localStorage.setItem('palettes', JSON.stringify(savedPalettes));
+  displaySavedPalettes();
+}
+
+// Function to load a saved palette
+function loadPalette(index) {
+  const savedPalettes = JSON.parse(localStorage.getItem('palettes')) || [];
+  const palette = savedPalettes[index];
+  
+  for (let i = 0; i < palette.length; i++) {
+    const colorBox = document.getElementById(`color${i + 1}`);
+    const colorCode = document.getElementById(`code${i + 1}`);
+    colorBox.style.backgroundColor = palette[i];
+    colorCode.textContent = palette[i];
+  }
+}
+
+// Function to display saved palettes
+function displaySavedPalettes() {
+  const savedPalettes = JSON.parse(localStorage.getItem('palettes')) || [];
+  const savedContainer = document.getElementById('saved-palettes');
+  savedContainer.innerHTML = '';
+
+  savedPalettes.forEach((palette, index) => {
+    const paletteDiv = document.createElement('div');
+    paletteDiv.className = 'saved-palette';
+
+    const colorsContainer = document.createElement('div');
+    colorsContainer.className = 'colors-container';
+    colorsContainer.innerHTML = palette.map(color =>
+      `<div class="saved-color" style="background-color: ${color};"></div>`).join('');
+
+    const deleteButton = `<button class="delete-btn" data-index="${index}">Delete</button>`;
+    const loadButton = `<button class="load-btn" data-index="${index}">Load</button>`;
+
+    paletteDiv.appendChild(colorsContainer);
+    paletteDiv.innerHTML += `${deleteButton} ${loadButton}`;
+    savedContainer.appendChild(paletteDiv);
+  });
+
+  document.querySelectorAll('.delete-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const index = e.target.getAttribute('data-index');
+      deletePalette(index);
+    });
+  });
+
+  document.querySelectorAll('.load-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const index = e.target.getAttribute('data-index');
+      loadPalette(index);
+    });
+  });
+}
+
+// Add event listeners
+document.getElementById('generate-btn').addEventListener('click', generatePalette);
+document.getElementById('save-btn').addEventListener('click', savePalette);
+document.querySelectorAll('.color-box').forEach(box => {
+  box.addEventListener('click', () => {
+    const index = box.getAttribute('data-index');
+    copyToClipboard(index);
+  });
+});
+document.querySelectorAll('.lock-btn').forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const index = button.getAttribute('data-index');
+    toggleLock(index);
+  });
+});
+
+// Load saved palettes on page load
+displaySavedPalettes();
+generatePalette();

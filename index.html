@@ -32,7 +32,7 @@
     <body> 
         <h1 id="title">navismart.github.io/Fun-Site</h1>
         <div>
-            Next Update will be on Christmas Week
+            Check out my new color palette generator at the bottom of the site. (made with help from ChatGPT and slightly modified)
         </div>
         <div id="draggable">
             <p>Please don't move me! 😖</p>
@@ -86,6 +86,36 @@
         <br>
         <iframe src="https://www.onlinegames.io/games/2021/unity/stack-fire-ball/index.html" width="700px" height="500px" frameborder="0" marginheight="0" scrolling="no"></iframe>
         <br>
+        <hr>
+        <br>
+        <div class="body">
+            <h3>Color Palette Generator:</h3>
+            <div class="palette">
+                <div class="color-box" id="color1" data-index="1">
+                    <button class="lock-btn" data-index="1">🔓</button>
+                    <p class="color-code" id="code1">#FFFFFF</p>
+                </div>
+                <div class="color-box" id="color2" data-index="2">
+                    <button class="lock-btn" data-index="2">🔓</button>
+                    <p class="color-code" id="code2">#FFFFFF</p>
+                </div>
+                <div class="color-box" id="color3" data-index="3">
+                    <button class="lock-btn" data-index="3">🔓</button>
+                    <p class="color-code" id="code3">#FFFFFF</p>
+                </div>
+                <div class="color-box" id="color4" data-index="4">
+                    <button class="lock-btn" data-index="4">🔓</button>
+                    <p class="color-code" id="code4">#FFFFFF</p>
+                </div>
+                <div class="color-box" id="color5" data-index="5">
+                    <button class="lock-btn" data-index="5">🔓</button>
+                    <p class="color-code" id="code5">#FFFFFF</p>
+                </div>
+            </div>
+            <button id="generate-btn">Generate Palette</button>
+            <button id="save-btn">Save Palette</button>
+            <div id="saved-palettes"></div>
+        </div>
         <br>
         <br>
         <!--scripts-->

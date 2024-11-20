@@ -108,3 +108,100 @@ button:hover {
 #normal {
   cursor: default;
 }
+
+h3 {
+  font-size: x-large;
+}
+
+/* styles.css */
+
+.body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: #f4f4f4;
+  font-family: "Afacad Flux";
+}
+
+.palette {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.color-box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 8px;
+  position: relative;
+}
+
+.color-code {
+  position: absolute;
+  bottom: 5px;
+  font-size: 12px;
+}
+
+.lock-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.lock-btn.locked {
+  color: gold;
+}
+
+#saved-palettes {
+  display: flex;
+  flex-direction: column; /* Stack palettes vertically */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.saved-palette {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saved-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid #ccc; /* Optional for contrast */
+}
+
+.delete-btn, .load-btn {
+  padding: 5px 10px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.load-btn {
+  background-color: #007BFF;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
+}
+
+.load-btn:hover {
+  background-color: #0056b3;
+}
