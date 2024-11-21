@@ -79,31 +79,6 @@ function changeShape() {
   setShape(number);
 }
 
-function setTextColor(random) {
-  weird.style.setProperty("--random-color", "#"+ random);
-}
-
-function changeTextColor() {
-  let number = Math.floor(Math.random() * (666666 - 0 + 1) + 0);
-  setTextColor(number);
-}
-
-function setBackgroundColor(random) {
-  weird.style.setProperty("--random-bg", "#" + random);
-}
-
-function changeBackgroundColor() {
-  let number = Math.floor(Math.random() * (666666 - 0 + 1) + 0);
-  setBackgroundColor(number);
-}
-
-function change() {
-  changeAngle();
-  changeShape();
-  changeTextColor();
-  changeBackgroundColor();
-}
-
 function resetTitle() {
   document.getElementById("title").innerHTML = "navismart.github.io/Fun-Site";
 }
@@ -264,3 +239,28 @@ document.querySelectorAll('.lock-btn').forEach(button => {
 // Load saved palettes on page load
 displaySavedPalettes();
 generatePalette();
+
+function setBackgroundColor(random) {
+  weird.style.setProperty("--random-bg", random);
+}
+
+function changeBackgroundColor() {
+  const number = getRandomColor();
+  setBackgroundColor(number);
+}
+
+function setTextColor(random) {
+  weird.style.setProperty("--random-color", random);
+}
+
+function changeTextColor() {
+  const number = getRandomColor();
+  setTextColor(number);
+}
+
+function change() {
+  changeAngle();
+  changeShape();
+  changeTextColor();
+  changeBackgroundColor();
+}
