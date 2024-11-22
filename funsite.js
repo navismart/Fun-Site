@@ -264,3 +264,31 @@ function change() {
   changeTextColor();
   changeBackgroundColor();
 }
+
+// Select elements
+const rollButton = document.getElementById('roll-dice');
+const diceOutput = document.getElementById('dice-output');
+const diceType = document.getElementById('dice-type');
+
+// Function to generate a random dice roll
+function rollDice(sides) {
+  return Math.floor(Math.random() * sides) + 1;
+}
+
+// Function to show rolling animation
+function rollingAnimation(callback) {
+  diceOutput.classList.add('rolling'); // Add rolling class
+  setTimeout(() => {
+    diceOutput.classList.remove('rolling'); // Remove class after animation ends
+    callback(); // Display the final result
+  }, 1000); // Animation duration (1 second)
+}
+
+// Event listener for rolling the dice
+rollButton.addEventListener('click', () => {
+  const sides = parseInt(diceType.value, 10); // Get selected dice type
+  rollingAnimation(() => {
+    const result = rollDice(sides); // Roll the dice
+    diceOutput.textContent = `🎲 Result: ${result}`; // Show result
+  });
+});
