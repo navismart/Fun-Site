@@ -292,3 +292,69 @@ rollButton.addEventListener('click', () => {
     diceOutput.textContent = `🎲 Result: ${result}`; // Show result
   });
 });
+
+// Select the audio element and controls
+const audio = document.getElementById('scroll-music');
+const muteButton = document.getElementById('mute-button');
+const musicIcon = document.getElementById('music-icon');
+
+// Function to play or pause the audio
+function togglePlayPause() {
+  if (audio.paused) {
+    audio.play().catch((error) => console.log('Playback error:', error));
+    musicIcon.textContent = '🎵'; // Playing icon
+    muteButton.textContent = 'Pause';
+  } else {
+    audio.pause();
+    musicIcon.textContent = '⏸'; // Paused icon
+  }
+}
+
+// Function to mute or unmute the audio
+function toggleMute() {
+  if (audio.muted) {
+    audio.muted = false;
+    muteButton.textContent = 'Pause';
+    musicIcon.textContent = '🎵'; // Playing icon
+  } else {
+    audio.muted = true;
+    muteButton.textContent = 'Unpause';
+    musicIcon.textContent = "⏸"; // Muted icon
+  }
+}
+
+
+// Add click event listeners
+musicIcon.addEventListener('click', togglePlayPause);
+muteButton.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play().catch((error) => console.log('Playback error:', error));
+    musicIcon.textContent = '🎵'; // Update to playing icon
+    muteButton.textContent = 'Pause';
+  }
+  toggleMute(); // Mute or unmute the audio
+});
+
+const volumeSlider = document.getElementById("volume-slider");
+volumeSlider.addEventListener("input", () => {
+  audio.volume = volumeSlider.value;
+});
+
+// Select elements
+const musicControl = document.getElementById('music-control');
+const minimizeButton = document.getElementById('minimize-button');
+const maximizeButton = document.getElementById('maximize-button');
+
+// Minimize the controls
+minimizeButton.addEventListener('click', () => {
+  musicControl.classList.add('minimized'); // Hide the controls
+  minimizeButton.style.display = 'none'; // Hide minimize button
+  maximizeButton.style.display = 'block'; // Show maximize button
+});
+
+// Maximize the controls
+maximizeButton.addEventListener('click', () => {
+  musicControl.classList.remove('minimized'); // Show the controls
+  maximizeButton.style.display = 'none'; // Hide maximize button
+  minimizeButton.style.display = 'inline-block'; // Show minimize button
+});
