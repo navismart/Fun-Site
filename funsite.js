@@ -274,7 +274,6 @@ rollButton.addEventListener('click', () => {
 
 // Select the audio element and controls
 const audio = document.getElementById('scroll-music');
-const muteButton = document.getElementById('mute-button');
 const musicIcon = document.getElementById('music-icon');
 
 // Function to play or pause the audio
@@ -282,7 +281,6 @@ function togglePlayPause() {
   if (audio.paused) {
     audio.play().catch((error) => console.log('Playback error:', error));
     musicIcon.textContent = '🎵'; // Playing icon
-    muteButton.textContent = 'Pause';
   } else {
     audio.pause();
     musicIcon.textContent = '⏸'; // Paused icon
@@ -293,11 +291,9 @@ function togglePlayPause() {
 function toggleMute() {
   if (audio.muted) {
     audio.muted = false;
-    muteButton.textContent = 'Pause';
     musicIcon.textContent = '🎵'; // Playing icon
   } else {
     audio.muted = true;
-    muteButton.textContent = 'Unpause';
     musicIcon.textContent = "⏸"; // Muted icon
   }
 }
@@ -305,14 +301,6 @@ function toggleMute() {
 
 // Add click event listeners
 musicIcon.addEventListener('click', togglePlayPause);
-muteButton.addEventListener('click', () => {
-  if (audio.paused) {
-    audio.play().catch((error) => console.log('Playback error:', error));
-    musicIcon.textContent = '🎵'; // Update to playing icon
-    muteButton.textContent = 'Pause';
-  }
-  toggleMute(); // Mute or unmute the audio
-});
 
 const volumeSlider = document.getElementById("volume-slider");
 volumeSlider.addEventListener("input", () => {
