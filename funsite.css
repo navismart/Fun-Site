@@ -253,20 +253,6 @@ audio {
   display: none;
 }
 
-#music-control {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #f9f9f9;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
 #music-icon {
   font-size: 24px;
   cursor: pointer;
