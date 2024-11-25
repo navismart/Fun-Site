@@ -5,7 +5,7 @@ h1 {
 }
 
 body {
-  background-color: aliceblue;
+  background-color: #f0f8ff;
   width: auto;
   height: 680px;
 }
@@ -26,7 +26,7 @@ label {
 #weird {
   font-family: "Nanum Gothic Coding";
   font-size: large;
-  color: blanchedalmond;
+  color: #ffebcd;
   font-weight: 900;
   background-color: blueviolet;
   width: max-content;
